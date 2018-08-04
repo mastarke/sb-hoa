@@ -1,0 +1,96 @@
+{%extends 'layout.html'%}
+
+{%block body%}
+
+
+
+<div class="main-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-11 col-xl-9">
+                <section class="py-4 py-lg-5">
+                    <div class="mb-3 d-flex">
+                        <img alt="Pipeline" src="static/img/logo-color.svg" class="avatar avatar-lg mr-1" />
+                        <div>
+                            <span class="badge badge-success">1.0</span>
+                        </div>
+                    </div>
+                    <h1 class="display-4 mb-3">My Headline Title</h1>
+                    <p class="lead">
+                        Headline text paragragh here
+                    </p>
+                    <div class="d-flex">
+                        <div class="dropdown mr-3">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Explore Pages</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="pages-app.html">App Pages</a>
+                                <a class="dropdown-item" href="pages-utility.html">Utility Pages</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">View Components</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="components-bootstrap.html">Bootstrap Components</a>
+                                <a class="dropdown-item" href="components-pipeline.html">Pipeline Components</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="py-4 py-lg-5">
+                    <div class="carousel slide carousel-fade mb-5" data-ride="carousel">
+                        <div class="carousel-inner overflow-visible">
+
+                            <div class="carousel-item shadow-lg active">
+                                <a href="pages-app.html">
+                                    <img alt="Image" src="static/img/property/beach-front-3.jpeg" class="img-fluid rounded border" />
+                                </a>
+                            </div>
+
+                            <div class="carousel-item shadow-lg ">
+                                <a href="pages-app.html">
+                                    <img alt="Image" src="static/img/property/bld-front-2.jpeg" class="img-fluid rounded border" />
+                                </a>
+                            </div>
+
+                            <div class="carousel-item shadow-lg ">
+                                <a href="pages-app.html">
+                                    <img alt="Image" src="static/img/property/bld-front-1.jpeg" class="img-fluid rounded border" />
+                                </a>
+                            </div>
+
+                            <div class="carousel-item shadow-lg ">
+                                <a href="pages-app.html">
+                                    <img alt="Image" src="static/img/property/common-area-2.jpeg" class="img-fluid rounded border" />
+                                </a>
+                            </div>
+
+                            <div class="carousel-item shadow-lg ">
+                                <a href="pages-app.html">
+                                    <img alt="Image" src="static/img/property/beach-front-1.jpeg" class="img-fluid rounded border" />
+                                </a>
+                            </div>
+
+                            <div class="carousel-item shadow-lg ">
+                                <a href="pages-app.html">
+                                    <img alt="Image" src="static/img/property/school-1.jpeg" class="img-fluid rounded border" />
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="material-icons text-primary mr-3 h1">supervised_user_circle</i>
+                        <h2 class="h1 mb-0">Project Management Pages</h2>
+                    </div>
+                    <p class="lead">
+                        Pipeline makes building project management interfaces simple with pages for teams, projects, tasks, kanban boards and more.
+                    </p>
+                    <a href="pages-app.html" class="mr-3">App Pages</a><a href="pages-utility.html" class="mr-3">Utility Pages</a>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
