@@ -56,23 +56,23 @@
                                     </div>
                                 </div>
                                 <!--end of avatar-->
-                                <form>
+                                <form method="POST">
                                     <div class="form-group row align-items-center">
                                         <label class="col-3">First Name</label>
                                         <div class="col">
-                                            <input type="text" placeholder="First name" value="David" name="profile-first-name" class="form-control" required />
+                                            <input type="text" placeholder="First name" value="{{cur_first_name}}" name="first_name" class="form-control" required />
                                         </div>
                                     </div>
                                     <div class="form-group row align-items-center">
                                         <label class="col-3">Last Name</label>
                                         <div class="col">
-                                            <input type="text" placeholder="First name" value="Whittaker" name="profile-last-name" class="form-control" />
+                                            <input type="text" placeholder="First name" value="{{cur_last_name}}" name="last_name" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="form-group row align-items-center">
                                         <label class="col-3">Email</label>
                                         <div class="col">
-                                            <input type="email" placeholder="Enter your email address" name="profile-email" class="form-control" required />
+                                            <input type="email" placeholder="Enter your email address" value="{{cur_user_email}}" name="email" class="form-control" required />
                                         </div>
                                     </div>
                                     <div class="form-group row align-items-center">
