@@ -1,39 +1,27 @@
-<!doctype html>
-<html lang="en">
-
 {%extends 'layout.html'%}
 
 {%block body%}
 
+
+
+
+
          <div class="main-container">
                 <div class="navbar bg-white breadcrumb-bar">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Overview</a>
-                            </li>
-
-                            <li class="breadcrumb-item"><a href="pages-app.html">App Pages</a>
-                            </li>
-
-
-                            <li class="breadcrumb-item active" aria-current="page">Task</li>
-                        </ol>
+                        
                     </nav>
-
+                    <p></p>
                     <div class="dropdown">
                         <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
                             <i class="material-icons">settings</i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
 
-
-
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#task-edit-modal">Edit</a>
                             <a class="dropdown-item" href="#">Mark as Complete</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger" href="#">Archive</a>
-
-
 
                         </div>
                     </div>
@@ -43,8 +31,15 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-11 col-xl-10">
                             <div class="page-header">
-                                <h1>Create brand mood boards</h1>
-                                <p class="lead">Assemble three distinct mood boards for client consideration</p>
+                                <h1>Message Board</h1>
+                                <p class="lead">Sea Breeze community member message board</p>
+                                {% for key, value in post_dict[0].items() %}
+                                    {%if key == 'title'%}
+                                        <p>the vaule of title {{value}}</p>
+                                    {%elif key == 'text' %}
+                                        <p>the value of text key is {{value}}</p>
+                                    {%endif%}
+                                {%endfor%}
                                 <div class="d-flex align-items-center">
                                     <ul class="avatars">
 
@@ -103,14 +98,9 @@
                                 </div>
                                 <div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" style="width:42%;"></div>
+                                        <div class="progress-bar bg-primary" style="width:100%;"></div>
                                     </div>
                                     <div class="d-flex justify-content-between text-small">
-                                        <div class="d-flex align-items-center">
-                                            <i class="material-icons">playlist_add_check</i>
-                                            <span>3/7</span>
-                                        </div>
-                                        <span>Due 14 days</span>
                                     </div>
                                 </div>
                             </div>
@@ -123,6 +113,7 @@
                                     <div class="content-list" data-filter-list="content-list-body">
                                         <div class="row content-list-head">
                                             <div class="col-auto">
+                                                <!-- matthew this is add button -->
                                                 <h3>Notes</h3>
                                                 <button class="btn btn-round" data-toggle="modal" data-target="#note-add-modal">
                                                     <i class="material-icons">add</i>
@@ -140,18 +131,22 @@
                                             </form>
                                         </div>
                                         <!--end of content list head-->
+                                        <!-- copy starts here matthew -->
                                         <div class="content-list-body">
-
+                                            {% for msg_title_list, msg_text_list, pub_date_list, user_name_list in msg_data%}
+                                        
                                             <div class="card card-note">
                                                 <div class="card-header">
                                                     <div class="media align-items-center">
-                                                        <img alt="Peggy Brown" src="static/img/avatar-female-2.jpg" class="avatar" data-toggle="tooltip" data-title="Peggy Brown" data-filter-by="alt" />
+                                                        <img alt="Peggy Brown" src="static/img/avatar-female-2.jpg" class="avatar" data-toggle="tooltip" data-title="{{user_name_list}}" data-filter-by="alt" />
                                                         <div class="media-body">
-                                                            <h6 class="mb-0" data-filter-by="text">First meeting notes</h6>
+                                                            
+                                                            <h6 class="mb-0" data-filter-by="text">{{msg_title_list}}</h6>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div class="d-flex align-items-center">
-                                                        <span data-filter-by="text">Just now</span>
+                                                        <span data-filter-by="text">{{pub_date_list}}</span>
                                                         <div class="ml-1 dropdown card-options">
                                                             <button class="btn-options" type="button" id="note-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 <i class="material-icons">more_vert</i>
@@ -164,76 +159,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="card-body" data-filter-by="text">
-                                                    <p>Here&#39;s a quick rundown of companies the client expressed interest in on our call this morning:</p>
-                                                    <ul>
-                                                        <li><a href="#">Commonwealth Bank of Australia</a> for the bright, positive color scheme</li>
-                                                        <li><a href="#">Bupa Health Insurance</a> for the adaptability of their logo around the site&#39;s layout</li>
-                                                        <li><a href="#">OPSM</a> again for the color scheme, this time for the softer pallette</li>
-                                                    </ul>
-
+                                                    <p>{{msg_text_list}}</p>
                                                 </div>
                                             </div>
-
-                                            <div class="card card-note">
-                                                <div class="card-header">
-                                                    <div class="media align-items-center">
-                                                        <img alt="David Whittaker" src="static/img/avatar-male-4.jpg" class="avatar" data-toggle="tooltip" data-title="David Whittaker" data-filter-by="alt" />
-                                                        <div class="media-body">
-                                                            <h6 class="mb-0" data-filter-by="text">Client preference</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center">
-                                                        <span data-filter-by="text">Yesterday</span>
-                                                        <div class="ml-1 dropdown card-options">
-                                                            <button class="btn-options" type="button" id="note-dropdown-button-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="material-icons">more_vert</i>
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#">Edit</a>
-                                                                <a class="dropdown-item text-danger" href="#">Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body" data-filter-by="text">
-                                                    <p>Hi all, just wanted to add that the client has requested that we lean toward a &#39;friendly&#39; aesthetic. I know this seems a little vague but it does give us a starting point for the mood boards.
-                                                        I recommend we use larger corporates who target &#39;youthful&#39; audiences as initial inspiration. <a href="#">@Peggy</a> will take the lead from here.</p>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="card card-note">
-                                                <div class="card-header">
-                                                    <div class="media align-items-center">
-                                                        <img alt="Ravi Singh" src="static/img/avatar-male-3.jpg" class="avatar" data-toggle="tooltip" data-title="Ravi Singh" data-filter-by="alt" />
-                                                        <div class="media-body">
-                                                            <h6 class="mb-0" data-filter-by="text">Matboard links</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center">
-                                                        <span data-filter-by="text">Just now</span>
-                                                        <div class="ml-1 dropdown card-options">
-                                                            <button class="btn-options" type="button" id="note-dropdown-button-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="material-icons">more_vert</i>
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#">Edit</a>
-                                                                <a class="dropdown-item text-danger" href="#">Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body" data-filter-by="text">
-                                                    <p>Hey guys, here&#39;s the link to the Matboards: <a href="#">https://matboard.io/3928462</a>
-                                                    </p>
-
-                                                </div>
-                                            </div>
-
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
                                 <!--end of tab-->
+                                <!-- copy ends here matthew -->
                                 <div class="tab-pane fade" id="files" role="tabpanel" aria-labelledby="files-tab" data-filter-list="dropzone-previews">
                                     <div class="content-list">
                                         <div class="row content-list-head">
@@ -1043,7 +977,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <form class="modal fade" id="note-add-modal" tabindex="-1" role="dialog" aria-labelledby="note-add-modal" aria-hidden="true">
+                            <!-- matthew your here -->
+                            <form action="{{ url_for('post_announcements') }}" method="POST" class="modal fade" id="note-add-modal" tabindex="-1" role="dialog" aria-labelledby="note-add-modal" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -1052,26 +987,28 @@
                                                 <i class="material-icons">close</i>
                                             </button>
                                         </div>
-                                        <!--end of modal head-->
+                                        <!--new note title-->
                                         <div class="modal-body">
                                             <div class="form-group row align-items-center">
                                                 <label class="col-3">Title</label>
-                                                <input class="form-control col" type="text" placeholder="Note title" name="note-name" />
+                                                <input class="form-control col" type="text" placeholder="Note title" name="message_title" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-3">Text</label>
-                                                <textarea class="form-control col" rows="6" placeholder="Body text for note" name="note-description"></textarea>
+                                                <textarea class="form-control col" rows="6" placeholder="Body text for note" name="message_text"></textarea>
                                             </div>
                                         </div>
                                         <!--end of modal body-->
-                                        <div class="modal-footer">
-                                            <button role="button" class="btn btn-primary" type="submit">
+                                        <div class="modal-footer" id=create-note-button>
+                                            <button role="button" class="btn btn-primary" type="submit" >
                                                 Create Note
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+
+
                         </div>
                     </div>
                 </div>
@@ -1266,6 +1203,7 @@
                 </div>
             </div>
 
+
 {%endblock%}
 
-</html>
+

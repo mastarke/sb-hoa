@@ -1,0 +1,17 @@
+{%extends 'layout.html'%}
+
+{%block body%}
+<div class="main-container" style="padding-left: 50px; padding-right: 50px; margin-top: 50px;">
+
+
+<div class="alert alert-success box" role="alert">
+  Success! your message has posted <a href="/announcements" class="alert-link">Click here</a>. to go back to announcments
+</div>
+
+
+<script type="text/javascript">
+    jQuery('.box').hide().slideDown(2000);
+
+</script>
+
+{%endblock%}
